@@ -1,0 +1,87 @@
+:root{
+    --div-color : rgba(255, 255, 255, 0.1);
+    --div-bg-color : #101010;
+    --bg-color : rgb(0, 0, 0);
+
+    --primary-color : rgb(0, 221, 255);
+
+    --title : white;
+    --desc : grey;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display:grid;
+    place-content: center;
+    background-color: var(--bg-color);
+    margin: 0rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.card{
+    position: relative;
+    width: 640px;
+    border: 1px solid var(--div-color);
+    border-radius: 1.6rem;
+    background-color: var(--div-bg-color);
+    padding: 1rem;
+}
+
+.card::after{
+    content: "";
+    background: linear-gradient(
+        transparent,
+        var(--primary-color),
+        transparent
+      );
+    width: 1px;
+    height: 70px;
+    position: absolute;
+    left: -1px;
+    top: 65%;
+    transition: top, opacity;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    opacity: 0;
+}
+.card:hover::after{
+    top: 25%;
+    opacity: 1;
+    
+}
+
+.card-content{
+    text-align: center;
+    position: relative;
+
+    gap: 3rem;
+    background-image: radial-gradient(
+        circle,
+        var(--div-color) 2px,
+        transparent 1px
+    );
+    background-position: 50% 50%;
+    background-size: 1.1rem 1.1rem;
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+    overflow: hidden;
+}
+
+.info{
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.title{
+    color: var(--title);
+    font-size: 1.3rem;
+}
+
+.description{
+    color: var(--desc);
+    font-size: 1.1rem;
+}
